@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Medicine Reminder App</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap');
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medicine Reminder App</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap');
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>💊 Medicine Reminder</h1>
-        <form id="reminderForm">
-            <input type="text" id="medName" placeholder="Medicine Name" required />
-            <input type="time" id="medTime" required />
-            <button type="submit">Add Reminder</button>
-        </form>
+  <div class="container">
+    <h1>💊 Medicine Reminder</h1>
+    <form id="reminderForm">
+      <input type="text" id="patientName" placeholder="Patient Name" required />
+      <input type="number" id="patientAge" placeholder="Age" required />
+      <input type="text" id="medName" placeholder="Medicine Name" required />
+      <input type="time" id="medTime" required />
+      <button type="submit">Add Reminder</button>
+    </form>
 
-        <h2>Scheduled Reminders : 👇</h2>
-        <ul id="reminderList"></ul>
-        <button id="stopAlarmBtn"
-            style="display: none; background-color: crimson; color: white; padding: 10px; border: none; border-radius: 5px; margin-top: 10px;">🔕
-            Stop Alarm</button>
-            <button onclick="alarmSound.play()">🔊 Listen Sound</button>
+    <h2>Scheduled Reminders : 👇</h2>
+    <ul id="reminderList"></ul>
 
-    </div>
+    <button id="stopAlarmBtn"
+      style="display: none; background-color: crimson; color: white; padding: 10px; border: none; border-radius: 5px; margin-top: 10px;">🔕 Stop Alarm</button>
+    <button onclick="alarmSound.play()">🔊 Listen Sound</button>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
