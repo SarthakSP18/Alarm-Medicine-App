@@ -36,7 +36,7 @@ function renderReminders() {
     const li = document.createElement("li");
     li.innerHTML = `
       <div>
-        👤 <strong>${reminder.patientName}</strong> (Age: ${reminder.patientAge})<br>
+        🤵 <strong>${reminder.patientName}</strong> (Age: ${reminder.patientAge})<br>
         💊 ${reminder.medName} at 🕐 ${reminder.medTime}
       </div>
       <div>
@@ -61,10 +61,10 @@ function editReminder(index) {
 
   li.innerHTML = `
     <div>
-      👤 <input type="text" id="editName${index}" value="${reminder.patientName}" />
-      🎂 <input type="number" id="editAge${index}" value="${reminder.patientAge}" />
+      🤵 <input type="text" id="editName${index}" value="${reminder.patientName}" /> <br>
+      🔢 <input type="number" id="editAge${index}" value="${reminder.patientAge}" /><br>
       💊 <input type="text" id="editMed${index}" value="${reminder.medName}" />
-      🕐 <input type="time" id="editTime${index}" value="${reminder.medTime}" />
+      <br>🕐 <input type="time" id="editTime${index}" value="${reminder.medTime}" />
     </div>
     <div style="margin-top: 10px;">
       <button onclick="saveReminder(${index})">✅ Save</button>
