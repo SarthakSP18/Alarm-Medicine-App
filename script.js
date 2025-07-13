@@ -78,20 +78,31 @@ let triggeredReminders = [];
 
 setInterval(() => {
   const now = new Date();
-  const currentTime = now.toTimeString().slice(0, 5);
 
   reminders.forEach((reminder) => {
+    const reminderTime = new Date(reminder.medTime);
     const key = `${reminder.patientName}-${reminder.medName}-${reminder.medTime}`;
-    if (reminder.medTime === currentTime && !triggeredReminders.includes(key)) {
+
+    // Match year, month, day, hour, and minute
+    const isSameMinute =
+      now.getFullYear() === reminderTime.getFullYear() &&
+      now.getMonth() === reminderTime.getMonth() &&
+      now.getDate() === reminderTime.getDate() &&
+      now.getHours() === reminderTime.getHours() &&
+      now.getMinutes() === reminderTime.getMinutes();
+
+    if (isSameMinute && !triggeredReminders.includes(key)) {
       triggeredReminders.push(key);
       notifyUser(reminder.patientName, reminder.medName);
     }
 
-    if (reminder.medTime !== currentTime) {
+    // Reset triggers if time has passed
+    const nowMinusOneMin = new Date(now.getTime() - 60000);
+    if (reminderTime < nowMinusOneMin) {
       triggeredReminders = triggeredReminders.filter(k => k !== key);
     }
   });
-}, 1000);
+}, 1000); // Check every second
 
 function notifyUser(patientName, medicineName) {
   if (Notification.permission === "granted") {
