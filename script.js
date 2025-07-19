@@ -64,7 +64,7 @@ function editReminder(index) {
       🤵 <input type="text" id="editName${index}" value="${reminder.patientName}" /> <br>
       🔢 <input type="number" id="editAge${index}" value="${reminder.patientAge}" /><br>
       💊 <input type="text" id="editMed${index}" value="${reminder.medName}" />
-      <br>🕐 <input type="time" id="editTime${index}" value="${reminder.medTime}" />
+      <br>🕐 <input type="datetime-local" id="editTime${index}" value="${reminder.medTime}" />
     </div>
     <div style="margin-top: 10px;">
       <button onclick="saveReminder(${index})">✅ Save</button>
